@@ -6,24 +6,24 @@ const MENU = [
     name: "Mediterraneo Poke",
     img: "",
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.",
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price: 25,
   },
   {
     id: 2,
-    name: "Mediterraneo Poke",
+    name: "Poke Tropical",
     img: "",
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.",
-    price: 25,
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 28,
   },
   {
     id: 3,
-    name: "Mediterraneo Poke",
+    name: "Poke Verde",
     img: "",
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.",
-    price: 25,
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 27,
   },
 ];
 
@@ -33,40 +33,40 @@ const DRINKS = [
     name: "Bebida de carambola",
     img: "",
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.",
-    price: 25,
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 12,
   },
   {
     id: 11,
     name: "Bebida de maracuya",
     img: "",
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.",
-    price: 25,
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 12,
   },
   {
     id: 12,
     name: "Bebida de piña",
     img: "",
     description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since 1966, when designers at Letraset and James Mosley, the librarian at St Bride Printing Library in London, took a 1914 Cicero translation and scrambled it to make dummy text for Letraset's Body Type sheets. It has survived not only many decades, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised thanks to these sheets and more recently with desktop publishing software like Aldus PageMaker and Microsoft Word including versions of Lorem Ipsum.",
-    price: 25,
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 12,
   },
 ];
 
 export default function Menu() {
   return (
-    <div className="flex flex-col gap-10">
+    <div className="mx-auto flex w-full max-w-300 flex-col gap-10 px-4 py-6 sm:px-6">
       <section>
         <div className="text-2xl font-medium">Nuestros pokes</div>
-        <ul className="flex flex-col gap-2">
+        <ul className="mt-4 flex flex-col gap-2">
           {MENU.map((dish) => (
             <Card
               key={dish.id}
               name={dish.name}
               description={dish.description}
-              imgSrc={"/public/globe.svg"}
-              imgAlt={"something"}
+              imgSrc={dish.img || "/public/globe.svg"}
+              imgAlt={dish.name}
               price={dish.price}
             />
           ))}
@@ -75,15 +75,15 @@ export default function Menu() {
 
       <section>
         <div className="text-2xl font-medium">Nuestras bebidas</div>
-        <ul className="flex flex-col gap-2">
-          {MENU.map((dish) => (
+        <ul className="mt-4 flex flex-col gap-2">
+          {DRINKS.map((drink) => (
             <Card
-              key={dish.id}
-              name={dish.name}
-              description={dish.description}
-              imgSrc={"/public/globe.svg"}
-              imgAlt={"something"}
-              price={dish.price}
+              key={drink.id}
+              name={drink.name}
+              description={drink.description}
+              imgSrc={drink.img || "/public/globe.svg"}
+              imgAlt={drink.name}
+              price={drink.price}
             />
           ))}
         </ul>
