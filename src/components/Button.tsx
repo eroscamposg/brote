@@ -1,4 +1,5 @@
 import { cva, VariantProps } from "class-variance-authority";
+import Link, { LinkProps } from "next/link";
 import React, { ButtonHTMLAttributes } from "react";
 
 const buttonVariants = cva(
@@ -25,27 +26,54 @@ const buttonVariants = cva(
   },
 );
 
-interface ButtonProps
-  extends
-    ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof buttonVariants> {
-  ref?: React.Ref<HTMLButtonElement>;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
-}
+type BaseProps = VariantProps<typeof buttonVariants> & {
+  className?: string;
+  children?: React.ReactNode;
+  ref?: React.Ref<HTMLButtonElement | HTMLAnchorElement>;
+};
+
+// when `href` is passed, accept Link's props (minus the ones we already define)
+type AsLink = BaseProps &
+  Omit<LinkProps, keyof BaseProps> & {
+    href: LinkProps["href"];
+  };
+
+// when `href` is NOT passed, accept normal button props
+type AsButton = BaseProps &
+  ButtonHTMLAttributes<HTMLButtonElement> & {
+    href?: undefined;
+  };
+
+type ButtonProps = AsLink | AsButton;
 
 export function Button({
   className,
   variant,
   size,
-  ref,
   children,
-  onClick,
+  href,
+  ref,
+  ...props
 }: ButtonProps) {
+  const classes = buttonVariants({ variant, size, className });
+
+  if (href)
+    return (
+      <Link
+        href={href}
+        ref={ref as React.Ref<HTMLAnchorElement>}
+        className={classes}
+        {...(props as Omit<LinkProps, "href">)}
+      >
+        {children}
+      </Link>
+    );
+
   return (
     <button
-      ref={ref}
+      ref={ref as React.Ref<HTMLButtonElement>}
       className={buttonVariants({ variant, size, className })}
-      onClick={onClick}
+      {...(props as ButtonHTMLAttributes<HTMLButtonElement>)}
     >
       {children}
     </button>

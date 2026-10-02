@@ -6,9 +6,13 @@ export default function DesktopHeader() {
     <div className="flex justify-between">
       <button className="text-2xl font-bold">Brote</button>
       <div className="flex align-middle justify-center gap-6">
-        <Button variant={"empty"}>Home</Button>
+        <Button variant={"empty"} href="/">
+          Home
+        </Button>
         <Button variant={"empty"}>About</Button>
-        <Button variant={"empty"}>Menu</Button>
+        <Button variant={"empty"} href="/menu">
+          Menu
+        </Button>
         <Button variant={"empty"}>Blog</Button>
         <Button variant={"empty"}>Contact</Button>
         <HiShoppingCart className="flex self-center" />

@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "./Button";
 
@@ -11,6 +10,23 @@ import Link from "next/link";
 export default function MobileSidebar() {
   const [isOpen, setIsOpen] = useState(false);
   const sidebar = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(min-width: 768px)");
+
+    function handleSizeChange(e: MediaQueryListEvent | MediaQueryList) {
+      if (e.matches) {
+        setIsOpen(false);
+      }
+    }
+
+    handleSizeChange(mediaQuery); // check on mount too, in case already desktop
+    mediaQuery.addEventListener("change", handleSizeChange);
+
+    return () => {
+      mediaQuery.addEventListener("change", handleSizeChange);
+    };
+  }, []);
 
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
