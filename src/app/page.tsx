@@ -1,3 +1,5 @@
+import { Button } from "../components/Button";
+import Card from "../components/Card";
 import MenuHero from "../components/MenuHero";
 
 const HERO_SLIDES = [
@@ -33,10 +35,55 @@ const HERO_SLIDES = [
   },
 ];
 
+const MENU = [
+  {
+    id: 1,
+    name: "Mediterraneo Poke",
+    img: "",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 25,
+  },
+  {
+    id: 2,
+    name: "Poke Tropical",
+    img: "",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 28,
+  },
+  {
+    id: 3,
+    name: "Poke Verde",
+    img: "",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 27,
+  },
+];
+
 export default function Home() {
   return (
     <>
       <MenuHero slides={HERO_SLIDES} />
+
+      <section className="py-8 px-6 ">
+        <div className="text-2xl font-medium">Nuestros destacados</div>
+        <ul className="mt-4 flex flex-col gap-2">
+          {MENU.map((dish) => (
+            <Card
+              key={dish.id}
+              name={dish.name}
+              description={dish.description}
+              imgSrc={dish.img || "/public/globe.svg"}
+              imgAlt={dish.name}
+              price={dish.price}
+            />
+          ))}
+        </ul>
+
+        <Button variant="secondary">Ver todos</Button>
+      </section>
     </>
   );
 }

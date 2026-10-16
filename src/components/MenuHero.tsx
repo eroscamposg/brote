@@ -26,7 +26,7 @@ export default function MenuHero({ slides }: { slides: HeroSlide[] }) {
   }, [slides.length]);
 
   return (
-    <section className="w-full relative overflow-hidden bg-slate-900 shadow-[0_18px_50px_rgba(15,23,42,0.25)]">
+    <section className="w-full relative overflow-hidden bg-slate-900">
       <div className="relative h-105 sm:h-140 lg:h-170">
         {slides.map((slide, index) => (
           <div
