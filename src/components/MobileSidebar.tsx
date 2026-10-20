@@ -6,6 +6,7 @@ import { Button } from "./Button";
 import { HiXMark } from "react-icons/hi2";
 import { IoMenu } from "react-icons/io5";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function MobileSidebar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -64,15 +65,13 @@ export default function MobileSidebar() {
       >
         <div className="flex items-center justify-between p-4 shadow-md">
           {/* Logo */}
-          {/* <Image
-            src="/public/next.svg"
-            alt="Logo"
-            className="h-6"
-            width={24}
-            height={24}
-          /> */}
-          <Link href="/" className="text-2xl font-bold">
-            Brote
+          <Link href="/">
+            <Image
+              src={"/brotelogonobg.png"}
+              alt="Brote logo"
+              width={120}
+              height={40}
+            />
           </Link>
 
           {/* Close Button */}

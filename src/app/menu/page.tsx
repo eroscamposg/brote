@@ -31,7 +31,7 @@ const DRINKS = [
   {
     id: 10,
     name: "Bebida de carambola",
-    img: "",
+    img: "/maracuyanobg.png",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price: 12,
@@ -39,7 +39,7 @@ const DRINKS = [
   {
     id: 11,
     name: "Bebida de maracuya",
-    img: "",
+    img: "/maracuyanobg.png",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price: 12,
@@ -47,7 +47,23 @@ const DRINKS = [
   {
     id: 12,
     name: "Bebida de piña",
-    img: "",
+    img: "/maracuyanobg.png",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 12,
+  },
+  {
+    id: 13,
+    name: "Chicha",
+    img: "/maracuyanobg.png",
+    description:
+      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
+    price: 12,
+  },
+  {
+    id: 14,
+    name: "Emoliente",
+    img: "/maracuyanobg.png",
     description:
       "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
     price: 12,
@@ -65,7 +81,7 @@ export default function Menu() {
               key={dish.id}
               name={dish.name}
               description={dish.description}
-              imgSrc={dish.img || "/public/globe.svg"}
+              imgSrc={dish.img || "/marino.png"}
               imgAlt={dish.name}
               price={dish.price}
             />
@@ -81,7 +97,7 @@ export default function Menu() {
               key={drink.id}
               name={drink.name}
               description={drink.description}
-              imgSrc={drink.img || "/public/globe.svg"}
+              imgSrc={drink.img || "/marino.png"}
               imgAlt={drink.name}
               price={drink.price}
             />

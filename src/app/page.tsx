@@ -67,7 +67,7 @@ export default function Home() {
     <>
       <MenuHero slides={HERO_SLIDES} />
 
-      <section className="py-8 px-6 ">
+      <section className="py-8 px-6 w-full">
         <div className="text-2xl font-medium">Nuestros destacados</div>
         <ul className="mt-4 flex flex-col gap-2">
           {MENU.map((dish) => (
@@ -75,14 +75,16 @@ export default function Home() {
               key={dish.id}
               name={dish.name}
               description={dish.description}
-              imgSrc={dish.img || "/public/globe.svg"}
+              imgSrc={dish.img || "/marino.png"}
               imgAlt={dish.name}
               price={dish.price}
             />
           ))}
         </ul>
 
-        <Button variant="secondary">Ver todos</Button>
+        <Button className="mt-4" variant="secondary">
+          Ver todos
+        </Button>
       </section>
     </>
   );
