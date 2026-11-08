@@ -10,6 +10,10 @@ const nextConfig: NextConfig = {
         port: "",
         pathname: "/**",
       },
+      {
+        protocol: "https",
+        hostname: "d654b2j2dqggy.cloudfront.net", // your distribution domain
+      },
     ],
   },
 };

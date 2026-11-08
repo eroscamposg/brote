@@ -62,7 +62,7 @@ const MENU = [
   },
 ];
 
-export default function Home() {
+export default function HomePage() {
   return (
     <>
       <MenuHero slides={HERO_SLIDES} />

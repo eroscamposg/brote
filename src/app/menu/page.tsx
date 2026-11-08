@@ -70,7 +70,7 @@ const DRINKS = [
   },
 ];
 
-export default function Menu() {
+export default function MenuPage() {
   return (
     <div className="mx-auto flex w-full max-w-300 flex-col gap-10 px-4 py-6 sm:px-6">
       <section>

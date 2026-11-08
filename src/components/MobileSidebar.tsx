@@ -63,7 +63,7 @@ export default function MobileSidebar() {
         ref={sidebar}
         className={`fixed top-0 left-0 z-50 h-full w-4/6 bg-white shadow-lg transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full"}`}
       >
-        <div className="flex items-center justify-between p-4 shadow-md">
+        <div className="header flex items-center justify-between p-4 shadow-md">
           {/* Logo */}
           <Link href="/">
             <Image
@@ -84,6 +84,31 @@ export default function MobileSidebar() {
             <HiXMark size={32} />
           </Button>
         </div>
+
+        <nav
+          className="flex flex-col items-start gap-4 p-4"
+          aria-label="Main navigation"
+        >
+          <Button variant={"empty"} href="/" onClick={() => setIsOpen(false)}>
+            Home
+          </Button>
+          <Button variant={"empty"} onClick={() => setIsOpen(false)}>
+            About
+          </Button>
+          <Button
+            variant={"empty"}
+            href="/menu"
+            onClick={() => setIsOpen(false)}
+          >
+            Menu
+          </Button>
+          <Button variant={"empty"} onClick={() => setIsOpen(false)}>
+            Blog
+          </Button>
+          <Button variant={"empty"} onClick={() => setIsOpen(false)}>
+            Contact
+          </Button>
+        </nav>
       </div>
     </>
   );
