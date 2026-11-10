@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 export type HeroSlide = {
@@ -9,6 +10,7 @@ export type HeroSlide = {
   title: string;
   description: string;
   cta: string;
+  href: string;
   image: string;
 };
 
@@ -39,8 +41,11 @@ export default function MenuHero({ slides }: { slides: HeroSlide[] }) {
               src={slide.image}
               alt={slide.title}
               fill
+              preload={index === 0}
+              sizes="100vw"
               className="h-full w-full object-cover"
             />
+            <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/25 to-black/10" />
 
             <div className="absolute inset-0 flex items-end p-5 sm:p-8 lg:p-12">
               <div className="max-w-xl rounded-3xl border border-white/10 bg-black/20 p-5 backdrop-blur-sm sm:p-7">
@@ -56,12 +61,12 @@ export default function MenuHero({ slides }: { slides: HeroSlide[] }) {
                   {slide.description}
                 </p>
 
-                <button
-                  type="button"
+                <Link
+                  href={slide.href}
                   className="mt-6 inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-900 transition hover:bg-slate-100"
                 >
                   {slide.cta}
-                </button>
+                </Link>
               </div>
             </div>
           </div>

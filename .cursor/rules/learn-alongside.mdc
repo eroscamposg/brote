@@ -1,0 +1,14 @@
+---
+description: Explain code in small batches so the author can review and learn each change
+alwaysApply: true
+---
+
+# Learn alongside the build
+
+Eros wants to understand each change before accepting it. When creating or editing code:
+
+- Change one concern at a time (one file, or a few files that belong to the same idea). Pause between batches instead of landing a large feature in one pass.
+- Before each batch, say what you are about to change, why that structure exists, and which files are involved.
+- After the batch, walk through the new or edited code: what each piece does, how it connects to the previous batch, and what to look at in the diff.
+- Prefer a short explanation in the chat over comments in the code. Keep code comments for something the code itself cannot show.
+- If a batch is hard to review on its own, split it further before writing the next one.

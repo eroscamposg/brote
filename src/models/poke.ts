@@ -1,7 +1,14 @@
-export interface Poke {
+export type MenuCategory = "pokes" | "bebidas";
+
+export interface Dish {
   id: number;
+  slug: string;
   name: string;
   description: string;
-  basePrice: number;
-  img: string;
+  price: number;
+  image: string;
+  category: MenuCategory;
+  ingredients: string[];
+  badge?: string;
+  available: boolean;
 }

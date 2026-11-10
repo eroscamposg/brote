@@ -1,109 +1,16 @@
-import Card from "@/src/components/Card";
+import type { Metadata } from "next";
+import { MenuBrowser } from "@/src/components/features/menu/MenuBrowser";
+import { menuSections } from "@/src/data/menu";
 
-const MENU = [
-  {
-    id: 1,
-    name: "Mediterraneo Poke",
-    img: "",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    price: 25,
-  },
-  {
-    id: 2,
-    name: "Poke Tropical",
-    img: "",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    price: 28,
-  },
-  {
-    id: 3,
-    name: "Poke Verde",
-    img: "",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    price: 27,
-  },
-];
-
-const DRINKS = [
-  {
-    id: 10,
-    name: "Bebida de carambola",
-    img: "/maracuyanobg.png",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    price: 12,
-  },
-  {
-    id: 11,
-    name: "Bebida de maracuya",
-    img: "/maracuyanobg.png",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    price: 12,
-  },
-  {
-    id: 12,
-    name: "Bebida de piña",
-    img: "/maracuyanobg.png",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    price: 12,
-  },
-  {
-    id: 13,
-    name: "Chicha",
-    img: "/maracuyanobg.png",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    price: 12,
-  },
-  {
-    id: 14,
-    name: "Emoliente",
-    img: "/maracuyanobg.png",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    price: 12,
-  },
-];
+export const metadata: Metadata = {
+  title: "Menú",
+  description: "Pokes y bebidas de Brote.",
+};
 
 export default function MenuPage() {
   return (
-    <div className="mx-auto flex w-full max-w-300 flex-col gap-10 px-4 py-6 sm:px-6">
-      <section>
-        <div className="text-2xl font-medium">Nuestros pokes</div>
-        <ul className="mt-4 flex flex-col gap-2">
-          {MENU.map((dish) => (
-            <Card
-              key={dish.id}
-              name={dish.name}
-              description={dish.description}
-              imgSrc={dish.img || "/marino.png"}
-              imgAlt={dish.name}
-              price={dish.price}
-            />
-          ))}
-        </ul>
-      </section>
-
-      <section>
-        <div className="text-2xl font-medium">Nuestras bebidas</div>
-        <ul className="mt-4 flex flex-col gap-2">
-          {DRINKS.map((drink) => (
-            <Card
-              key={drink.id}
-              name={drink.name}
-              description={drink.description}
-              imgSrc={drink.img || "/marino.png"}
-              imgAlt={drink.name}
-              price={drink.price}
-            />
-          ))}
-        </ul>
-      </section>
+    <div className="mx-auto flex w-full max-w-2xl flex-col gap-10 px-4 py-6 sm:px-6">
+      <MenuBrowser groups={menuSections} showHeadings showNav />
     </div>
   );
 }

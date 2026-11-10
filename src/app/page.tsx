@@ -1,8 +1,12 @@
-import { Button } from "../components/Button";
-import Card from "../components/Card";
-import MenuHero from "../components/MenuHero";
+import Link from "next/link";
+import { Button } from "../components/ui/Button";
+import MenuHero, { HeroSlide } from "@/src/components/features/menu/MenuHero";
+import { MenuBrowser } from "@/src/components/features/menu/MenuBrowser";
+import { OpenBadge } from "@/src/components/features/restaurant/OpenBadge";
+import { featuredDishes } from "@/src/data/menu";
+import { restaurant } from "@/src/data/restaurant";
 
-const HERO_SLIDES = [
+const HERO_SLIDES: HeroSlide[] = [
   {
     id: 1,
     tag: "Nuevo",
@@ -10,6 +14,7 @@ const HERO_SLIDES = [
     description:
       "Descubre bowls balanceados, ingredientes premium y promociones pensadas para acompañar tu día.",
     cta: "Ver menú",
+    href: "/menu",
     image:
       "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1200&q=80",
   },
@@ -20,6 +25,7 @@ const HERO_SLIDES = [
     description:
       "Combina tu poke favorito con toppings crocantes, salsas artesanales y bebidas refrescantes.",
     cta: "Ver combo",
+    href: "/menu#pokes",
     image:
       "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80",
   },
@@ -29,36 +35,10 @@ const HERO_SLIDES = [
     title: "2x1 en bebidas tropicales",
     description:
       "Siente el sabor tropical de la temporada con nuestras bebidas frías y renovadas.",
-    cta: "Reservar",
+    cta: "Ver bebidas",
+    href: "/menu#bebidas",
     image:
       "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=1200&q=80",
-  },
-];
-
-const MENU = [
-  {
-    id: 1,
-    name: "Mediterraneo Poke",
-    img: "",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    price: 25,
-  },
-  {
-    id: 2,
-    name: "Poke Tropical",
-    img: "",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    price: 28,
-  },
-  {
-    id: 3,
-    name: "Poke Verde",
-    img: "",
-    description:
-      "Lorem Ipsum is simply dummy text of the printing and typesetting industry.",
-    price: 27,
   },
 ];
 
@@ -67,22 +47,32 @@ export default function HomePage() {
     <>
       <MenuHero slides={HERO_SLIDES} />
 
-      <section className="py-8 px-6 w-full">
-        <div className="text-2xl font-medium">Nuestros destacados</div>
-        <ul className="mt-4 flex flex-col gap-2">
-          {MENU.map((dish) => (
-            <Card
-              key={dish.id}
-              name={dish.name}
-              description={dish.description}
-              imgSrc={dish.img || "/marino.png"}
-              imgAlt={dish.name}
-              price={dish.price}
-            />
-          ))}
-        </ul>
+      <section className="mx-auto w-full max-w-2xl px-6 py-8">
+        <div className="flex flex-wrap items-center justify-between gap-3">
+          <h2 className="text-2xl font-medium">Nuestros destacados</h2>
+          <OpenBadge />
+        </div>
+        <p className="mt-2 text-sm text-gray-600">
+          {restaurant.hoursSummary}.{" "}
+          <Link href="/contacto" className="text-green-800 underline">
+            {restaurant.address}
+          </Link>
+        </p>
 
-        <Button className="mt-4" variant="secondary">
+        <div className="mt-4">
+          <MenuBrowser
+            groups={[
+              {
+                id: "destacados",
+                title: "Nuestros destacados",
+                navLabel: "Destacados",
+                dishes: featuredDishes,
+              },
+            ]}
+          />
+        </div>
+
+        <Button className="mt-4" variant="secondary" href="/menu">
           Ver todos
         </Button>
       </section>

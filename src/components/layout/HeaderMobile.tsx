@@ -1,8 +1,9 @@
 import Link from "next/link";
-import MobileSidebar from "../MobileSidebar";
+import Sidebar from "./Sidebar";
 import Image from "next/image";
+import { CartButton } from "@/src/components/features/cart/CartButton";
 
-export default function MobileHeader() {
+export default function HeaderMobile() {
   return (
     <div className="flex justify-between">
       <Link href="/">
@@ -11,9 +12,13 @@ export default function MobileHeader() {
           alt="Brote logo"
           width={120}
           height={40}
+          className="h-auto"
         />
       </Link>
-      <MobileSidebar />
+      <div className="flex items-center gap-3">
+        <CartButton />
+        <Sidebar />
+      </div>
     </div>
   );
 }

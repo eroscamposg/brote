@@ -1,9 +1,9 @@
-import { HiShoppingCart } from "react-icons/hi2";
-import { Button } from "../Button";
+import { Button } from "../ui/Button";
 import Image from "next/image";
 import Link from "next/link";
+import { CartButton } from "@/src/components/features/cart/CartButton";
 
-export default function DesktopHeader() {
+export default function HeaderDesktop() {
   return (
     <div className="flex justify-between">
       <Link href="/">
@@ -12,19 +12,23 @@ export default function DesktopHeader() {
           alt="Brote logo"
           width={120}
           height={40}
+          className="h-auto"
         />
       </Link>
       <div className="flex self-center justify-center gap-6">
         <Button variant={"empty"} href="/">
-          Home
+          Inicio
         </Button>
-        <Button variant={"empty"}>About</Button>
+        <Button variant={"empty"} href="/nosotros">
+          Nosotros
+        </Button>
         <Button variant={"empty"} href="/menu">
-          Menu
+          Menú
         </Button>
-        <Button variant={"empty"}>Blog</Button>
-        <Button variant={"empty"}>Contact</Button>
-        <HiShoppingCart className="flex self-center" />
+        <Button variant={"empty"} href="/contacto">
+          Contacto
+        </Button>
+        <CartButton />
       </div>
     </div>
   );
