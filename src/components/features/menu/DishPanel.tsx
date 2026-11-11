@@ -6,7 +6,7 @@ import { HiXMark } from "react-icons/hi2";
 import { Dish } from "@/src/models/poke";
 import { formatPrice } from "@/src/lib/money";
 import { Button } from "@/src/components/ui/Button";
-import { useCart } from "../cart/CartProvider";
+import { useCart } from "../cart/hooks/useCart";
 
 export function DishPanel({
   dish,

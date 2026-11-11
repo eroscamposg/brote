@@ -5,7 +5,7 @@ import Link from "next/link";
 import { formatPrice } from "@/src/lib/money";
 import { OrderRequest, submitOrder } from "@/src/lib/orders";
 import { Button } from "@/src/components/ui/Button";
-import { useCartDetails } from "./CartProvider";
+import { useCartDetails } from "./hooks/useCart";
 
 export function CheckoutForm() {
   const { detailed, subtotal, clear } = useCartDetails();

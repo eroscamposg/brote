@@ -7,7 +7,7 @@ import { HiXMark } from "react-icons/hi2";
 import { IoMenu } from "react-icons/io5";
 import Link from "next/link";
 import Image from "next/image";
-import { useCart } from "@/src/components/features/cart/CartProvider";
+import { useCart } from "../features/cart/hooks/useCart";
 
 export default function SidebarMobile() {
   const [isOpen, setIsOpen] = useState(false);

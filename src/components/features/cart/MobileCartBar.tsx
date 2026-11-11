@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
-import { useCart } from "./CartProvider";
+import { useCart } from "./hooks/useCart";
 
 export function MobileCartBar() {
   const { totalItems, openCart } = useCart();

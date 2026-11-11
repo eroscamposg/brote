@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { HiXMark } from "react-icons/hi2";
 import { formatPrice } from "@/src/lib/money";
 import { Button } from "@/src/components/ui/Button";
-import { useCartDetails } from "./CartProvider";
+import { useCartDetails } from "./hooks/useCart";
 
 export function CartDrawer() {
   const { isOpen, closeCart, detailed, subtotal, setQuantity, removeItem } =
@@ -26,7 +26,7 @@ export function CartDrawer() {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[70]">
+    <div className="fixed inset-0 z-70">
       <button
         type="button"
         aria-label="Cerrar carrito"

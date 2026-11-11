@@ -1,7 +1,7 @@
 "use client";
 
 import { HiShoppingCart } from "react-icons/hi2";
-import { useCart } from "./CartProvider";
+import { useCart } from "./hooks/useCart";
 
 export function CartButton() {
   const { totalItems, openCart } = useCart();
