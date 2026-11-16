@@ -8,7 +8,7 @@ export const restaurant = {
   phoneDisplay: "(+51) 980915578",
   phoneTel: "+51980915578",
   whatsappNumber: "51980915578",
-  address: "La Molina, Ovalo los condores",
+  address: "La Molina, óvalo los condores",
   city: "Lima, Perú",
   hoursSummary: "Martes a sábado, horarios en la tarde y noche",
   hours: [

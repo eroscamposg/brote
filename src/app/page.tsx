@@ -3,8 +3,8 @@ import { Button } from "../components/ui/Button";
 import MenuHero, { HeroSlide } from "@/src/components/features/menu/MenuHero";
 import { MenuBrowser } from "@/src/components/features/menu/MenuBrowser";
 import { OpenBadge } from "@/src/components/features/restaurant/OpenBadge";
-import { featuredDishes } from "@/src/data/menu";
 import { restaurant } from "@/src/data/restaurant";
+import { getMenu } from "../lib/menuApi";
 
 const HERO_SLIDES: HeroSlide[] = [
   {
@@ -42,7 +42,10 @@ const HERO_SLIDES: HeroSlide[] = [
   },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  const { sections } = await getMenu();
+  const featured = sections[0].dishes ?? [];
+
   return (
     <>
       <MenuHero slides={HERO_SLIDES} />
@@ -66,7 +69,7 @@ export default function HomePage() {
                 id: "destacados",
                 title: "Nuestros destacados",
                 navLabel: "Destacados",
-                dishes: featuredDishes,
+                dishes: featured,
               },
             ]}
           />
